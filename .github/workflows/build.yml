@@ -49,7 +49,9 @@ jobs:
         working-directory: dist/package
       - uses: ./.github/actions/setup-firefox
       - name: Install dependencies
-        run: npx playwright install-deps chromium
+        run: |
+          npx playwright install-deps chromium
+          npx playwright install
       - name: Run JavaScript tests (including WebGL)
         run: npm test
       - name: Run JavaScript tests (excluding WebGL)
